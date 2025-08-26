@@ -29,7 +29,7 @@ plugins:
 # 导航菜单（可选）
 defaults:
   - scope:
-      path: ""
+      path: "_posts"
       type: "posts"
     values:
       layout: "post"
