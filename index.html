@@ -1,6 +1,18 @@
 ---
 layout: default
 title: "mTNT Blog - AI操作系统开发日志"
+pagination:
+  enabled: true
+  collection: posts
+  per_page: 5
+  permalink: "/page:num/"
+  title: ":title - page :num"
+  limit: 0
+  sort_field: "date"
+  sort_reverse: true
+  trail:
+    before: 2
+    after: 2
 ---
 
 <div class="welcome-section">
@@ -29,11 +41,28 @@ title: "mTNT Blog - AI操作系统开发日志"
   <h2>最新文章 / Latest Posts</h2>
   
   <ul>
-    {% for post in site.posts limit:5 %}
+    {% for post in paginator.posts %}
       <li>{{ post.date | date: "%Y年%m月%d日" }} - <a href="{{ post.url }}">{{ post.title }}</a></li>
     {% endfor %}
   </ul>
 </div>
+
+<!-- 分页导航 -->
+{% if paginator.total_pages > 1 %}
+<div class="pagination">
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path | relative_url }}" class="previous">&laquo; 上一页</a>
+  {% endif %}
+  
+  <span class="page_number">
+    第 {{ paginator.page }} 页，共 {{ paginator.total_pages }} 页
+  </span>
+  
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path | relative_url }}" class="next">下一页 &raquo;</a>
+  {% endif %}
+</div>
+{% endif %}
 
 <div class="quick-navigation">
   <h2>快速导航 / Quick Navigation</h2>

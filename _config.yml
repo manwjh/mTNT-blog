@@ -16,9 +16,17 @@ highlighter: rouge
 encoding: "utf-8"
 
 # 分页
-paginate: 5
-paginate_path: "/page:num/"
-paginate_layout: "default"
+pagination:
+  enabled: true
+  per_page: 5
+  permalink: "/page:num/"
+  title: ":title - page :num"
+  limit: 0
+  sort_field: "date"
+  sort_reverse: true
+  trail:
+    before: 2
+    after: 2
 
 # 文章URL格式
 permalink: /:year/:month/:day/:title/
