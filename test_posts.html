@@ -1,0 +1,36 @@
+---
+layout: default
+title: "测试文章显示"
+---
+
+<h1>测试文章显示</h1>
+
+<h2>所有文章 ({{ site.posts.size }} 篇)</h2>
+
+<ul>
+{% for post in site.posts %}
+  <li>
+    <strong>{{ post.date | date: "%Y-%m-%d %H:%M" }}</strong> - 
+    <a href="{{ post.url }}">{{ post.title }}</a>
+    <br>
+    <small>URL: {{ post.url }}</small>
+  </li>
+{% endfor %}
+</ul>
+
+<h2>最新5篇文章</h2>
+
+<ul>
+{% for post in site.posts limit:5 %}
+  <li>
+    <strong>{{ post.date | date: "%Y年%m月%d日" }}</strong> - 
+    <a href="{{ post.url }}">{{ post.title }}</a>
+  </li>
+{% endfor %}
+</ul>
+
+<h2>调试信息</h2>
+
+<p>Base URL: {{ site.baseurl }}</p>
+<p>Site URL: {{ site.url }}</p>
+<p>文章总数: {{ site.posts.size }}</p>
