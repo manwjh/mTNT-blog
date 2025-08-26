@@ -12,8 +12,8 @@ A: mTNT OS 是一个基于LLM技术的AI操作系统，通过自然语言交互�
 A: mTNT OS is an AI Operating System based on LLM technology that redefines human-computer interaction through natural language interaction and touch control.
 
 ### Q: 如何参与项目开发？/ How can I contribute to the project?
-A: 欢迎通过GitHub提交Issue、Pull Request，或参与社区讨论。详细指南请参考[开发指南](/guides.html)。  
-A: You can contribute by submitting Issues, Pull Requests on GitHub, or participating in community discussions. Please refer to the [Development Guide](/guides.html) for detailed instructions.
+A: 欢迎通过GitHub提交Issue、Pull Request，或参与社区讨论。详细指南请参考[开发指南](/pages/guides/)。
+A: You can contribute by submitting Issues, Pull Requests on GitHub, or participating in community discussions. Please refer to the [Development Guide](/pages/guides/) for detailed instructions.
 
 ### Q: 项目使用什么技术栈？/ What technology stack does the project use?
 A: 主要技术包括Linux内核、Python、LLM模型、触摸交互技术等。  
@@ -22,8 +22,8 @@ A: Main technologies include Linux kernel, Python, LLM models, touch interaction
 ## 技术问题 / Technical Issues
 
 ### Q: 如何搭建开发环境？/ How to set up the development environment?
-A: 请参考[开发指南](/guides.html)中的环境配置部分。  
-A: Please refer to the environment configuration section in the [Development Guide](/guides.html).
+A: 请参考[开发指南](/pages/guides/)中的环境配置部分。
+A: Please refer to the environment configuration section in the [Development Guide](/pages/guides/).
 
 ### Q: 支持哪些操作系统？/ Which operating systems are supported?
 A: 目前主要支持Ubuntu 20.04+、CentOS 8+、macOS 10.15+。  

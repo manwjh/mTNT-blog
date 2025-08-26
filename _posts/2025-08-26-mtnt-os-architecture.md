@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "mTNT OS 架构设计详解"
-date: 2025-08-26 15:00:00 +0800
+date: 2025-08-26 21:07:00 +0800
 categories: [Architecture, Technical]
 tags: [mTNT, AI, OS, Architecture, LLM, Touch, Talk]
 author: 深圳王哥

@@ -5,7 +5,7 @@ title: "mTNT Blog"
 description: "基于 mTNT 的技术分享、开发指南和项目记录"
 author: "mTNT Team"
 url: "https://manwjh.github.io"
-baseurl: "/mTNT-blog"
+baseurl: ""
 
 # 主题设置
 timezone: Asia/Shanghai
@@ -18,13 +18,20 @@ encoding: "utf-8"
 # 分页
 paginate: 5
 paginate_path: "/page:num/"
+paginate_layout: "default"
 
 # 文章URL格式
-permalink: /:year/:month/:day/:title.html
+permalink: /:year/:month/:day/:title/
 
 # 插件
 plugins:
-  - jekyll-paginate
+  - jekyll-paginate-v2
+
+# 集合
+collections:
+  pages:
+    output: true
+    permalink: /:collection/:name/
 
 # 导航菜单（可选）
 defaults:
@@ -39,6 +46,10 @@ defaults:
       layout: "page"
   - scope:
       path: "_issues"
+    values:
+      layout: "page"
+  - scope:
+      path: "_pages"
     values:
       layout: "page"
 

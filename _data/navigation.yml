@@ -2,13 +2,13 @@
   url: "/"
 
 - title: "Guides"
-  url: "/guides.html"
+  url: "/pages/guides/"
 
 - title: "Issues"
-  url: "/issues.html"
+  url: "/pages/issues/"
 
 - title: "About"
-  url: "/about.html"
+  url: "/pages/about/"
 
 - title: "Contact"
-  url: "/contact"
+  url: "/pages/contact/"

@@ -5,7 +5,7 @@ gem "github-pages", group: :jekyll_plugins
 
 # 插件
 group :jekyll_plugins do
-  gem "jekyll-paginate"
+  gem "jekyll-paginate-v2"
 end
 
 # Windows 和 JRuby 兼容性
