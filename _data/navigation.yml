@@ -1,0 +1,14 @@
+- title: "Home"
+  url: "/"
+
+- title: "Guides"
+  url: "/guides.html"
+
+- title: "Issues"
+  url: "/issues.html"
+
+- title: "About"
+  url: "/about.html"
+
+- title: "Contact"
+  url: "/contact"

@@ -1,0 +1,49 @@
+# _config.yml
+
+# 基本站点信息
+title: "mTNT Blog"
+description: "基于 mTNT 的技术分享、开发指南和项目记录"
+author: "mTNT Team"
+url: "https://manwjh.github.io"
+baseurl: ""
+
+# 主题设置
+timezone: Asia/Shanghai
+
+# Markdown & 编码
+markdown: kramdown
+highlighter: rouge
+encoding: "utf-8"
+
+# 分页
+paginate: 5
+paginate_path: "/page:num/"
+
+# 文章URL格式
+permalink: /:year/:month/:day/:title/
+
+# 插件
+plugins:
+  - jekyll-paginate
+
+# 导航菜单（可选）
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: "_guides"
+    values:
+      layout: "page"
+  - scope:
+      path: "_issues"
+    values:
+      layout: "page"
+
+# 自定义参数（可扩展）
+social_links:
+  github: https://github.com/manwjh/mTNT-blog
+  twitter: https://x.com/cpswang
+  

@@ -1,0 +1,63 @@
+---
+layout: default
+title: "mTNT Blog - AI操作系统开发日志"
+---
+
+<div class="welcome-section">
+  <h1>欢迎来到 <strong>mTNT Blog</strong> 🚀</h1>
+  
+  <p>这里会记录 mTNT OS 的开发日志、设计思路和实践经验。</p>
+  
+  <p>mTNT OS 是一个基于LLM技术构建的AI操作系统，让人人都能开发自己的AI应用是这个项目的使命。交互抛弃传统的键盘+鼠标，自然语言交互+触摸控制是主要交互方式。</p>
+  
+  <div class="logo-section">
+    <img src="{{ '/assets/images/mtnt_logo2.png' | relative_url }}" alt="mTNT Logo" style="max-width: 200px; margin: 20px 0; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+  </div>
+</div>
+
+<hr>
+
+<div class="welcome-section">
+  <h1>Welcome to <strong>mTNT Blog</strong> 🚀</h1>
+  
+  <p>This blog documents the development logs, design ideas, and practical experiences of mTNT OS.</p>
+  
+  <p>mTNT OS is an AI Operating System built on LLM technology. The mission of this project is to enable everyone to develop their own AI applications. Interaction abandons traditional keyboard + mouse, with natural language interaction + touch control as the primary interaction methods.</p>
+</div>
+
+<div class="latest-posts">
+  <h2>最新文章 / Latest Posts</h2>
+  
+  <ul>
+    {% for post in site.posts limit:5 %}
+      <li>{{ post.date | date: "%Y年%m月%d日" }} - <a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
+
+<div class="quick-navigation">
+  <h2>快速导航 / Quick Navigation</h2>
+  
+  <ul>
+    <li><a href="{{ '/guides.html' | relative_url }}">📖 开发指南 / Development Guide</a></li>
+    <li><a href="{{ '/issues.html' | relative_url }}">❓ 常见问题 / FAQ</a></li>
+    <li><a href="{{ '/about.html' | relative_url }}">ℹ️ 关于我们 / About</a></li>
+  </ul>
+</div>
+
+<div class="project-features">
+  <h2>项目特色 / Project Features</h2>
+  
+  <ul>
+    <li>🤖 <strong>AI驱动 / AI-Driven</strong>: 基于LLM技术的智能操作系统 / Intelligent OS based on LLM technology</li>
+    <li>🖐️ <strong>触摸交互 / Touch Interaction</strong>: 自然语言+触摸控制 / Natural language + touch control</li>
+    <li>🔒 <strong>隐私保护 / Privacy Protection</strong>: 本地化实现，保护个人隐私 / Localized implementation, protecting personal privacy</li>
+    <li>🐧 <strong>Linux生态 / Linux Ecosystem</strong>: 充分发挥Linux软件生态优势 / Leveraging the full power of Linux software ecosystem</li>
+    <li>☁️ <strong>混合架构 / Hybrid Architecture</strong>: 支持云端与本地混合部署 / Supporting cloud and local hybrid deployment</li>
+  </ul>
+</div>
+
+<div class="footer-note">
+  <p>欢迎探索并加入我们的AI操作系统开发之旅！<br>
+  Welcome to explore and join our AI operating system development journey!</p>
+</div>
