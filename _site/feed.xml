@@ -3,10 +3,10 @@
   <channel>
     <title>mTNT Blog</title>
     <description>基于 mTNT 的技术分享、开发指南和项目记录</description>
-    <link>http://localhost:4000</link>
-    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
+    <link>https://manwjh.github.io</link>
+    <atom:link href="https://manwjh.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 27 Aug 2025 09:11:39 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 27 Aug 2025 09:13:04 +0800</lastBuildDate>
     
     
     <item>
@@ -14,8 +14,8 @@
       <description>mTNT OS 架构设计详解
 
 </description>
-      <link>http://localhost:4000/2025/08/26/mtnt-os-architecture/</link>
-      <guid>http://localhost:4000/2025/08/26/mtnt-os-architecture/</guid>
+      <link>https://manwjh.github.io/2025/08/26/mtnt-os-architecture/</link>
+      <guid>https://manwjh.github.io/2025/08/26/mtnt-os-architecture/</guid>
       <pubDate>Tue, 26 Aug 2025 21:07:00 +0800</pubDate>
       <author>深圳王哥</author>
     </item>
@@ -25,8 +25,8 @@
       <description>mTNT OS Core 系统历史分析记录
 
 </description>
-      <link>http://localhost:4000/2025/08/26/mtnt-os-core-analysis/</link>
-      <guid>http://localhost:4000/2025/08/26/mtnt-os-core-analysis/</guid>
+      <link>https://manwjh.github.io/2025/08/26/mtnt-os-core-analysis/</link>
+      <guid>https://manwjh.github.io/2025/08/26/mtnt-os-core-analysis/</guid>
       <pubDate>Tue, 26 Aug 2025 16:00:00 +0800</pubDate>
       <author>AI Assistant</author>
     </item>
@@ -36,8 +36,8 @@
       <description>前言 / Preface
 
 </description>
-      <link>http://localhost:4000/2025/08/26/welcome-post/</link>
-      <guid>http://localhost:4000/2025/08/26/welcome-post/</guid>
+      <link>https://manwjh.github.io/2025/08/26/welcome-post/</link>
+      <guid>https://manwjh.github.io/2025/08/26/welcome-post/</guid>
       <pubDate>Tue, 26 Aug 2025 10:00:00 +0800</pubDate>
       <author>深圳王哥 & AI</author>
     </item>
