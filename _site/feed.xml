@@ -6,8 +6,19 @@
     <link>https://manwjh.github.io</link>
     <atom:link href="https://manwjh.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 27 Aug 2025 09:55:08 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 27 Aug 2025 14:33:55 +0800</lastBuildDate>
     
+    
+    <item>
+      <title>mTNT OS 常见问题解答与故障排除指南</title>
+      <description>mTNT OS 常见问题解答与故障排除指南
+
+</description>
+      <link>https://manwjh.github.io/2025/08/27/mtnt-os-faq-troubleshooting/</link>
+      <guid>https://manwjh.github.io/2025/08/27/mtnt-os-faq-troubleshooting/</guid>
+      <pubDate>Wed, 27 Aug 2025 14:00:00 +0800</pubDate>
+      <author>深圳王哥</author>
+    </item>
     
     <item>
       <title>mTNT OS 入门指南 - 测试文章</title>

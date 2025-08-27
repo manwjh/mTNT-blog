@@ -219,12 +219,15 @@ footer {
   /* 头部响应式 */
   header {
     padding: 15px 0;
+    position: relative;
   }
   
   .header-content {
     flex-direction: column;
     text-align: center;
     gap: 15px;
+    position: relative;
+    padding-right: 50px; /* 为菜单按钮留出空间 */
   }
   
   .site-title {
@@ -556,6 +559,10 @@ footer {
   padding: 10px;
   border-radius: 5px;
   transition: background 0.3s ease;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1001;
 }
 
 .mobile-menu-btn:hover {
@@ -587,8 +594,17 @@ footer {
 
 /* 移动端导航优化 */
 @media (max-width: 768px) {
+  /* 头部容器相对定位 */
+  .header-content {
+    position: relative;
+  }
+  
   .mobile-menu-btn {
     display: block;
+  }
+  
+  nav {
+    position: relative;
   }
   
   nav ul {
@@ -599,17 +615,22 @@ footer {
     right: 0;
     background: rgba(102, 126, 234, 0.95);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     z-index: 1000;
     padding: 10px;
     border-radius: 0 0 10px 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    margin-top: 5px;
   }
   
   nav ul.nav-open {
     display: flex;
+    flex-direction: column;
   }
   
   nav ul li {
     width: 100%;
+    margin: 0;
   }
   
   nav ul li a {
@@ -618,6 +639,15 @@ footer {
     padding: 12px;
     border-radius: 5px;
     margin: 2px 0;
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    transition: background 0.3s ease;
+  }
+  
+  nav ul li a:hover,
+  nav ul li a:active {
+    background: rgba(255,255,255,0.2);
   }
   
   /* 代码块容器 */

@@ -44,19 +44,30 @@ function initMobileNav() {
     menuButton.innerHTML = '☰';
     menuButton.setAttribute('aria-label', 'Toggle navigation menu');
 
-    // 插入菜单按钮
-    const navContainer = nav.parentElement;
-    navContainer.insertBefore(menuButton, nav);
+    // 插入菜单按钮到header-content中
+    const headerContent = document.querySelector('.header-content');
+    if (headerContent) {
+        headerContent.appendChild(menuButton);
+    }
 
     // 切换菜单显示
-    menuButton.addEventListener('click', function() {
+    menuButton.addEventListener('click', function(e) {
+        e.stopPropagation(); // 阻止事件冒泡
         nav.classList.toggle('nav-open');
         menuButton.classList.toggle('active');
     });
 
     // 点击外部关闭菜单
     document.addEventListener('click', function(event) {
-        if (!navContainer.contains(event.target)) {
+        if (!headerContent.contains(event.target)) {
+            nav.classList.remove('nav-open');
+            menuButton.classList.remove('active');
+        }
+    });
+
+    // 点击菜单项后关闭菜单
+    nav.addEventListener('click', function(event) {
+        if (event.target.tagName === 'A') {
             nav.classList.remove('nav-open');
             menuButton.classList.remove('active');
         }
