@@ -5,7 +5,7 @@ title: "mTNT Blog"
 description: "基于 mTNT 的技术分享、开发指南和项目记录"
 author: "mTNT Team"
 url: "https://manwjh.github.io"
-baseurl: ""
+baseurl: "/mTNT-blog"
 
 # 主题设置
 timezone: Asia/Shanghai
@@ -40,6 +40,7 @@ collections:
   pages:
     output: true
     permalink: /:collection/:name/
+    sort_by: title
 
 # 导航菜单（可选）
 defaults:
