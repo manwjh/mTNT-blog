@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="基于 mTNT 的技术分享、开发指南和项目记录">
+    <meta name="author" content="mTNT Team">
+    
+    <title>mTNT Blog 部署指南 - mTNT Blog</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/mTNT-blog/assets/css/style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/mTNT-blog/assets/images/favicon.ico">
+    
+    <!-- Feed -->
+    <link rel="alternate" type="application/rss+xml" title="mTNT Blog" href="/mTNT-blog/feed.xml">
+</head>
+<body>
+    <div class="container">
+        <header>
+    <div class="container">
+        <div class="header-content">
+            <div>
+                <h1 class="site-title">mTNT Blog</h1>
+                <p class="site-description">基于 mTNT 的技术分享、开发指南和项目记录</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/mTNT-blog/">首页 / Home</a></li>
+                    <li><a href="/mTNT-blog/pages/guides/">指南 / Guides</a></li>
+                    <li><a href="/mTNT-blog/pages/issues/">问题 / Issues</a></li>
+                    <li><a href="/mTNT-blog/pages/about/">关于 / About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+        
+        <main class="main-content">
+            <article class="page">
+    <header class="page-header">
+        <h1 class="page-title">mTNT Blog 部署指南</h1>
+    </header>
+
+    <div class="page-content">
+        <h1 id="mtnt-blog-部署指南">mTNT Blog 部署指南</h1>
+
+<p>本文档介绍如何将mTNT Blog部署到各种平台。</p>
+
+<h2 id="-github-pages-部署">🚀 GitHub Pages 部署</h2>
+
+<h3 id="方法1-使用github-actions推荐">方法1: 使用GitHub Actions（推荐）</h3>
+
+<ol>
+  <li><strong>创建GitHub仓库</strong>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 在GitHub上创建新仓库: manwjh/mTNT-blog</span>
+</code></pre></div>    </div>
+  </li>
+  <li><strong>推送代码</strong>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git remote add origin https://github.com/manwjh/mTNT-blog.git
+git branch <span class="nt">-M</span> main
+git push <span class="nt">-u</span> origin main
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><strong>创建GitHub Actions工作流</strong></p>
+
+    <p>创建文件 <code class="language-plaintext highlighter-rouge">.github/workflows/deploy.yml</code>:</p>
+    <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">name</span><span class="pi">:</span> <span class="s">Deploy to GitHub Pages</span>
+   
+<span class="na">on</span><span class="pi">:</span>
+  <span class="na">push</span><span class="pi">:</span>
+    <span class="na">branches</span><span class="pi">:</span> <span class="pi">[</span> <span class="nv">main</span> <span class="pi">]</span>
+  <span class="na">pull_request</span><span class="pi">:</span>
+    <span class="na">branches</span><span class="pi">:</span> <span class="pi">[</span> <span class="nv">main</span> <span class="pi">]</span>
+   
+<span class="na">jobs</span><span class="pi">:</span>
+  <span class="na">build-and-deploy</span><span class="pi">:</span>
+    <span class="na">runs-on</span><span class="pi">:</span> <span class="s">ubuntu-latest</span>
+       
+    <span class="na">steps</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Checkout</span>
+      <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@v3</span>
+   
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Set up Ruby</span>
+      <span class="na">uses</span><span class="pi">:</span> <span class="s">ruby/setup-ruby@v1</span>
+      <span class="na">with</span><span class="pi">:</span>
+        <span class="na">ruby-version</span><span class="pi">:</span> <span class="s1">'</span><span class="s">3.0'</span>
+        <span class="na">bundler-cache</span><span class="pi">:</span> <span class="no">true</span>
+   
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Install dependencies</span>
+      <span class="na">run</span><span class="pi">:</span> <span class="pi">|</span>
+        <span class="s">bundle install</span>
+   
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Build site</span>
+      <span class="na">run</span><span class="pi">:</span> <span class="pi">|</span>
+        <span class="s">bundle exec jekyll build</span>
+   
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Deploy to GitHub Pages</span>
+      <span class="na">if</span><span class="pi">:</span> <span class="s">github.ref == 'refs/heads/main'</span>
+      <span class="na">uses</span><span class="pi">:</span> <span class="s">peaceiris/actions-gh-pages@v3</span>
+      <span class="na">with</span><span class="pi">:</span>
+        <span class="na">github_token</span><span class="pi">:</span> <span class="s">$</span>
+        <span class="na">publish_dir</span><span class="pi">:</span> <span class="s">./_site</span>
+</code></pre></div>    </div>
+  </li>
+  <li><strong>启用GitHub Pages</strong>
+    <ul>
+      <li>进入仓库设置 → Pages</li>
+      <li>Source选择 “Deploy from a branch”</li>
+      <li>Branch选择 “gh-pages”</li>
+      <li>保存设置</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="方法2-手动部署">方法2: 手动部署</h3>
+
+<ol>
+  <li><strong>构建网站</strong>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle <span class="nb">install
+</span>bundle <span class="nb">exec </span>jekyll build
+</code></pre></div>    </div>
+  </li>
+  <li><strong>推送到gh-pages分支</strong>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout <span class="nt">-b</span> gh-pages
+git add _site <span class="nt">-f</span>
+git commit <span class="nt">-m</span> <span class="s2">"Deploy to GitHub Pages"</span>
+git push origin gh-pages
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h2 id="-netlify-部署">🌐 Netlify 部署</h2>
+
+<ol>
+  <li><strong>连接GitHub仓库</strong>
+    <ul>
+      <li>登录 <a href="https://netlify.com">Netlify</a></li>
+      <li>点击 “New site from Git”</li>
+      <li>选择GitHub，授权访问仓库</li>
+    </ul>
+  </li>
+  <li><strong>配置构建设置</strong>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Build command: bundle exec jekyll build
+Publish directory: _site
+</code></pre></div>    </div>
+  </li>
+  <li><strong>环境变量设置</strong>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>JEKYLL_ENV: production
+</code></pre></div>    </div>
+  </li>
+  <li><strong>部署</strong>
+    <ul>
+      <li>点击 “Deploy site”</li>
+      <li>等待构建完成</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="-vercel-部署">⚡ Vercel 部署</h2>
+
+<ol>
+  <li><strong>连接GitHub仓库</strong>
+    <ul>
+      <li>登录 <a href="https://vercel.com">Vercel</a></li>
+      <li>点击 “New Project”</li>
+      <li>导入GitHub仓库</li>
+    </ul>
+  </li>
+  <li><strong>配置构建设置</strong>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Framework Preset: Other
+Build Command: bundle exec jekyll build
+Output Directory: _site
+</code></pre></div>    </div>
+  </li>
+  <li><strong>部署</strong>
+    <ul>
+      <li>点击 “Deploy”</li>
+      <li>等待构建完成</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="️-阿里云oss部署">☁️ 阿里云OSS部署</h2>
+
+<ol>
+  <li><strong>安装阿里云CLI</strong>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip <span class="nb">install </span>aliyun-cli
+</code></pre></div>    </div>
+  </li>
+  <li><strong>配置认证</strong>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aliyun configure
+</code></pre></div>    </div>
+  </li>
+  <li><strong>创建部署脚本</strong>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+bundle <span class="nb">exec </span>jekyll build
+aliyun oss <span class="nb">cp </span>_site/ oss://your-bucket-name/ <span class="nt">--recursive</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h2 id="-docker-部署">🐳 Docker 部署</h2>
+
+<ol>
+  <li><strong>创建Dockerfile</strong>
+    <div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">FROM</span><span class="s"> ruby:3.0-alpine</span>
+   
+<span class="k">WORKDIR</span><span class="s"> /app</span>
+   
+<span class="k">COPY</span><span class="s"> Gemfile Gemfile.lock ./</span>
+<span class="k">RUN </span>bundle <span class="nb">install</span>
+   
+<span class="k">COPY</span><span class="s"> . .</span>
+<span class="k">RUN </span>bundle <span class="nb">exec </span>jekyll build
+   
+<span class="k">FROM</span><span class="s"> nginx:alpine</span>
+<span class="k">COPY</span><span class="s"> --from=0 /app/_site /usr/share/nginx/html</span>
+   
+<span class="k">EXPOSE</span><span class="s"> 80</span>
+<span class="k">CMD</span><span class="s"> ["nginx", "-g", "daemon off;"]</span>
+</code></pre></div>    </div>
+  </li>
+  <li><strong>构建和运行</strong>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker build <span class="nt">-t</span> mtnt-blog <span class="nb">.</span>
+docker run <span class="nt">-p</span> 80:80 mtnt-blog
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h2 id="-本地开发">🔧 本地开发</h2>
+
+<h3 id="环境要求">环境要求</h3>
+
+<ul>
+  <li>Ruby 2.7+</li>
+  <li>Jekyll 4.0+</li>
+  <li>Bundler</li>
+</ul>
+
+<h3 id="安装步骤">安装步骤</h3>
+
+<ol>
+  <li><strong>安装Ruby</strong>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># macOS (使用Homebrew)</span>
+brew <span class="nb">install </span>ruby
+   
+<span class="c"># Ubuntu/Debian</span>
+<span class="nb">sudo </span>apt-get <span class="nb">install </span>ruby-full
+   
+<span class="c"># CentOS/RHEL</span>
+<span class="nb">sudo </span>yum <span class="nb">install </span>ruby
+</code></pre></div>    </div>
+  </li>
+  <li><strong>安装Jekyll</strong>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem <span class="nb">install </span>jekyll bundler
+</code></pre></div>    </div>
+  </li>
+  <li><strong>启动开发服务器</strong>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle <span class="nb">install
+</span>bundle <span class="nb">exec </span>jekyll serve
+</code></pre></div>    </div>
+  </li>
+  <li><strong>访问网站</strong>
+打开浏览器访问: http://localhost:4000</li>
+</ol>
+
+<h2 id="-自定义域名">📝 自定义域名</h2>
+
+<h3 id="github-pages">GitHub Pages</h3>
+
+<ol>
+  <li><strong>添加CNAME文件</strong>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>your-domain.com
+</code></pre></div>    </div>
+  </li>
+  <li><strong>配置DNS</strong>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CNAME your-domain.com manwjh.github.io
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h3 id="netlify">Netlify</h3>
+
+<ol>
+  <li><strong>添加自定义域名</strong>
+    <ul>
+      <li>进入站点设置 → Domain management</li>
+      <li>点击 “Add custom domain”</li>
+      <li>输入域名</li>
+    </ul>
+  </li>
+  <li><strong>配置DNS</strong>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CNAME your-domain.com your-site.netlify.app
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h2 id="-https配置">🔒 HTTPS配置</h2>
+
+<h3 id="github-pages-1">GitHub Pages</h3>
+<ul>
+  <li>自动启用HTTPS</li>
+  <li>在仓库设置中勾选 “Enforce HTTPS”</li>
+</ul>
+
+<h3 id="netlify-1">Netlify</h3>
+<ul>
+  <li>自动启用HTTPS</li>
+  <li>支持Let’s Encrypt证书</li>
+</ul>
+
+<h3 id="其他平台">其他平台</h3>
+<ul>
+  <li>配置SSL证书</li>
+  <li>重定向HTTP到HTTPS</li>
+</ul>
+
+<h2 id="-性能优化">📊 性能优化</h2>
+
+<h3 id="图片优化">图片优化</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 使用ImageOptim压缩图片</span>
+<span class="c"># 或使用在线工具如TinyPNG</span>
+</code></pre></div></div>
+
+<h3 id="cssjs优化">CSS/JS优化</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 压缩CSS</span>
+bundle <span class="nb">exec </span>jekyll build <span class="nt">--incremental</span>
+
+<span class="c"># 使用CDN</span>
+<span class="c"># 在_config.yml中配置CDN链接</span>
+</code></pre></div></div>
+
+<h3 id="缓存策略">缓存策略</h3>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 在_config.yml中添加缓存头</span>
+<span class="na">headers</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">scope</span><span class="pi">:</span> <span class="s">assets</span>
+    <span class="na">values</span><span class="pi">:</span>
+      <span class="na">Cache-Control</span><span class="pi">:</span> <span class="s2">"</span><span class="s">public,</span><span class="nv"> </span><span class="s">max-age=31536000"</span>
+</code></pre></div></div>
+
+<h2 id="-故障排除">🚨 故障排除</h2>
+
+<h3 id="常见问题">常见问题</h3>
+
+<ol>
+  <li><strong>构建失败</strong>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 检查Ruby版本</span>
+ruby <span class="nt">--version</span>
+   
+<span class="c"># 更新依赖</span>
+bundle update
+   
+<span class="c"># 清理缓存</span>
+bundle <span class="nb">exec </span>jekyll clean
+</code></pre></div>    </div>
+  </li>
+  <li><strong>样式不显示</strong>
+    <ul>
+      <li>检查CSS文件路径</li>
+      <li>确认baseurl配置正确</li>
+      <li>检查GitHub Pages设置</li>
+    </ul>
+  </li>
+  <li><strong>图片不显示</strong>
+    <ul>
+      <li>检查图片路径</li>
+      <li>确认图片文件存在</li>
+      <li>检查文件权限</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="调试技巧">调试技巧</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 详细构建日志</span>
+bundle <span class="nb">exec </span>jekyll build <span class="nt">--verbose</span>
+
+<span class="c"># 本地调试</span>
+bundle <span class="nb">exec </span>jekyll serve <span class="nt">--incremental</span> <span class="nt">--drafts</span>
+
+<span class="c"># 检查语法</span>
+bundle <span class="nb">exec </span>jekyll doctor
+</code></pre></div></div>
+
+<h2 id="-支持">📞 支持</h2>
+
+<p>如果遇到部署问题，请：</p>
+
+<ol>
+  <li>查看 <a href="https://jekyllrb.com/docs/">Jekyll官方文档</a></li>
+  <li>检查 <a href="https://pages.github.com/">GitHub Pages文档</a></li>
+  <li>在GitHub Issues中报告问题</li>
+  <li>联系项目维护者</li>
+</ol>
+
+<hr />
+
+<p><strong>祝您部署顺利！</strong> 🚀</p>
+
+    </div>
+</article>
+        </main>
+        
+        <footer>
+    <div class="container">
+        <div class="footer-content">
+            <p>&copy; 2025 mTNT Blog. All rights reserved.</p>
+            
+            <!-- 访问量统计 -->
+            <div class="visit-counter">
+                <span id="busuanzi_container_site_pv">
+                    总访问量: <span id="busuanzi_value_site_pv"></span>
+                </span>
+                <span id="busuanzi_container_site_uv">
+                    访客数: <span id="busuanzi_value_site_uv"></span>
+                </span>
+            </div>
+            
+            <p>Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://pages.github.com/">GitHub Pages</a></p>
+        </div>
+    </div>
+</footer>
+
+<!-- 不蒜子访问量统计脚本 -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    </div>
+    
+    <!-- JavaScript -->
+    <script src="/mTNT-blog/assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="基于 mTNT 的技术分享、开发指南和项目记录">
+    <meta name="author" content="mTNT Team">
+    
+    <title>图片文件移动操作总结 - mTNT Blog</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/mTNT-blog/assets/css/style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/mTNT-blog/assets/images/favicon.ico">
+    
+    <!-- Feed -->
+    <link rel="alternate" type="application/rss+xml" title="mTNT Blog" href="/mTNT-blog/feed.xml">
+</head>
+<body>
+    <div class="container">
+        <header>
+    <div class="container">
+        <div class="header-content">
+            <div>
+                <h1 class="site-title">mTNT Blog</h1>
+                <p class="site-description">基于 mTNT 的技术分享、开发指南和项目记录</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/mTNT-blog/">首页 / Home</a></li>
+                    <li><a href="/mTNT-blog/pages/guides/">指南 / Guides</a></li>
+                    <li><a href="/mTNT-blog/pages/issues/">问题 / Issues</a></li>
+                    <li><a href="/mTNT-blog/pages/about/">关于 / About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+        
+        <main class="main-content">
+            <article class="page">
+    <header class="page-header">
+        <h1 class="page-title">图片文件移动操作总结</h1>
+    </header>
+
+    <div class="page-content">
+        <h1 id="图片文件移动操作总结">图片文件移动操作总结</h1>
+
+<h2 id="操作概述">操作概述</h2>
+
+<p>成功将以下图片文件从 <code class="language-plaintext highlighter-rouge">assets/</code> 目录移动到 <code class="language-plaintext highlighter-rouge">assets/images/</code> 目录，并同步更新了所有引用这些图片的文件。</p>
+
+<h2 id="移动的文件">移动的文件</h2>
+
+<h3 id="已移动的图片文件-">已移动的图片文件 ✅</h3>
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">assets/mtnt_logo1.png</code> → <code class="language-plaintext highlighter-rouge">assets/images/mtnt_logo1.png</code></li>
+  <li><code class="language-plaintext highlighter-rouge">assets/mtnt_logo2.png</code> → <code class="language-plaintext highlighter-rouge">assets/images/mtnt_logo2.png</code></li>
+  <li><code class="language-plaintext highlighter-rouge">assets/mtnt_logo3.jpg</code> → <code class="language-plaintext highlighter-rouge">assets/images/mtnt_logo3.jpg</code></li>
+  <li><code class="language-plaintext highlighter-rouge">assets/mTNT_mainwin.png</code> → <code class="language-plaintext highlighter-rouge">assets/images/mTNT_mainwin.png</code></li>
+  <li><code class="language-plaintext highlighter-rouge">assets/mTNT_OS_QQ_qrcode.png</code> → <code class="language-plaintext highlighter-rouge">assets/images/mTNT_OS_QQ_qrcode.png</code></li>
+</ol>
+
+<h2 id="更新的文件引用">更新的文件引用</h2>
+
+<h3 id="已更新的文件-">已更新的文件 ✅</h3>
+<ol>
+  <li><strong><code class="language-plaintext highlighter-rouge">index.html</code></strong> - 更新了 <code class="language-plaintext highlighter-rouge">mtnt_logo2.png</code> 的引用路径</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">about.md</code></strong> - 更新了 <code class="language-plaintext highlighter-rouge">mTNT_OS_QQ_qrcode.png</code> 的引用路径</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">contact.html</code></strong> - 更新了 <code class="language-plaintext highlighter-rouge">mTNT_OS_QQ_qrcode.png</code> 的引用路径</li>
+</ol>
+
+<h3 id="引用路径变更">引用路径变更</h3>
+<ul>
+  <li><strong>之前</strong>: <code class="language-plaintext highlighter-rouge">/mTNT-blog/assets/filename.png</code></li>
+  <li><strong>之后</strong>: <code class="language-plaintext highlighter-rouge">/mTNT-blog/assets/images/filename.png</code></li>
+</ul>
+
+<h2 id="文件结构验证">文件结构验证</h2>
+
+<h3 id="当前-assets-目录结构">当前 assets 目录结构</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>assets/
+├── images/
+│   ├── favicon.ico
+│   ├── mtnt_logo1.png
+│   ├── mtnt_logo2.png
+│   ├── mtnt_logo3.jpg
+│   ├── mTNT_mainwin.png
+│   └── mTNT_OS_QQ_qrcode.png
+├── css/
+│   └── style.scss
+└── js/
+    └── main.js
+</code></pre></div></div>
+
+<h2 id="检查结果">检查结果</h2>
+
+<h3 id="链接检查-">链接检查 ✅</h3>
+<ul>
+  <li>运行了链接检查脚本验证所有图片链接</li>
+  <li>确认所有图片路径引用已正确更新</li>
+  <li>没有发现损坏的图片链接</li>
+</ul>
+
+<h3 id="文件完整性-">文件完整性 ✅</h3>
+<ul>
+  <li>所有图片文件成功移动到新位置</li>
+  <li>文件大小和内容保持不变</li>
+  <li>原始 assets 目录已清理</li>
+</ul>
+
+<h2 id="未使用的图片">未使用的图片</h2>
+
+<p>以下图片文件已移动但当前未被引用，可供将来使用：</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">mtnt_logo1.png</code> - 第一个版本的logo</li>
+  <li><code class="language-plaintext highlighter-rouge">mtnt_logo3.jpg</code> - 第三个版本的logo</li>
+  <li><code class="language-plaintext highlighter-rouge">mTNT_mainwin.png</code> - 主窗口截图</li>
+</ul>
+
+<h2 id="建议">建议</h2>
+
+<ol>
+  <li><strong>定期检查</strong>: 建议定期运行链接检查脚本确保图片链接正常</li>
+  <li><strong>文件管理</strong>: 保持 <code class="language-plaintext highlighter-rouge">assets/images/</code> 目录的组织结构</li>
+  <li><strong>备份</strong>: 考虑为重要图片文件创建备份</li>
+  <li><strong>优化</strong>: 可以考虑压缩图片文件以提升加载速度</li>
+</ol>
+
+<h2 id="总结">总结</h2>
+
+<p>✅ <strong>图片移动操作成功完成</strong>
+✅ <strong>所有引用路径已正确更新</strong>
+✅ <strong>文件结构更加规范</strong>
+✅ <strong>链接检查通过验证</strong></p>
+
+<p>所有图片文件现在都统一存放在 <code class="language-plaintext highlighter-rouge">assets/images/</code> 目录下，便于管理和维护。</p>
+
+    </div>
+</article>
+        </main>
+        
+        <footer>
+    <div class="container">
+        <div class="footer-content">
+            <p>&copy; 2025 mTNT Blog. All rights reserved.</p>
+            
+            <!-- 访问量统计 -->
+            <div class="visit-counter">
+                <span id="busuanzi_container_site_pv">
+                    总访问量: <span id="busuanzi_value_site_pv"></span>
+                </span>
+                <span id="busuanzi_container_site_uv">
+                    访客数: <span id="busuanzi_value_site_uv"></span>
+                </span>
+            </div>
+            
+            <p>Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://pages.github.com/">GitHub Pages</a></p>
+        </div>
+    </div>
+</footer>
+
+<!-- 不蒜子访问量统计脚本 -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    </div>
+    
+    <!-- JavaScript -->
+    <script src="/mTNT-blog/assets/js/main.js"></script>
+</body>
+</html>
