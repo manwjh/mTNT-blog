@@ -1,7 +1,12 @@
 source "https://rubygems.org"
 
+# 指定Ruby版本要求
+ruby "~> 2.6.0"
+
+# 注意: 不要在这里指定bundler版本，会与系统bundler冲突
+
 # GitHub Pages 和 Jekyll
-gem "github-pages", group: :jekyll_plugins
+gem "github-pages", "~> 228", group: :jekyll_plugins
 
 # 插件
 group :jekyll_plugins do
