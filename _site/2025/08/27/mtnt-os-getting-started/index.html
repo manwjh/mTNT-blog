@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="theme-color" content="#667eea">
+    <meta name="description" content="基于 mTNT 的技术分享、开发指南和项目记录">
+    <meta name="author" content="深圳王哥">
+    
+    <title>mTNT OS 入门指南 - 测试文章 - mTNT Blog</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/mTNT-blog/assets/css/style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/mTNT-blog/assets/images/favicon.ico">
+    
+    <!-- Feed -->
+    <link rel="alternate" type="application/rss+xml" title="mTNT Blog" href="/mTNT-blog/feed.xml">
+</head>
+<body>
+    <div class="container">
+        <header>
+    <div class="container">
+        <div class="header-content">
+            <div>
+                <h1 class="site-title">mTNT Blog</h1>
+                <p class="site-description">基于 mTNT 的技术分享、开发指南和项目记录</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/mTNT-blog/">首页 / Home</a></li>
+                    <li><a href="/mTNT-blog/pages/guides/">指南 / Guides</a></li>
+                    <li><a href="/mTNT-blog/pages/issues/">问题 / Issues</a></li>
+                    <li><a href="/mTNT-blog/pages/about/">关于 / About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+        
+        <main class="main-content">
+            <article class="post">
+    <header class="post-header">
+        <h1 class="post-title">mTNT OS 入门指南 - 测试文章</h1>
+        <p class="post-meta">
+            Posted on August 27, 2025
+             by 深圳王哥
+        </p>
+    </header>
+
+    <div class="post-content">
+        <h1 id="mtnt-os-入门指南---从零开始搭建开发环境">mTNT OS 入门指南 - 从零开始搭建开发环境</h1>
+
+<p><strong>文档创建日期</strong>: 2025-08-27<br />
+<strong>文档版本</strong>: v1.0.0<br />
+<strong>适用对象</strong>: 开发者、技术爱好者</p>
+
+<hr />
+
+<h2 id="1-项目简介">1. 项目简介</h2>
+
+<p>mTNT OS (mini Touch and Talk Operating System) 是一个基于LLM技术的AI操作系统项目，旨在通过自然语言交互和触摸控制来重新定义人机交互体验。</p>
+
+<h3 id="11-核心特性">1.1 核心特性</h3>
+<ul>
+  <li>🤖 <strong>AI驱动</strong>: 基于大语言模型的智能交互</li>
+  <li>🖐️ <strong>触摸控制</strong>: 直观的触摸手势操作</li>
+  <li>🗣️ <strong>语音交互</strong>: 自然语言对话</li>
+  <li>🔒 <strong>隐私保护</strong>: 本地化AI推理</li>
+  <li>🐧 <strong>Linux生态</strong>: 基于Linux内核</li>
+</ul>
+
+<h3 id="12-技术栈">1.2 技术栈</h3>
+<ul>
+  <li><strong>操作系统</strong>: Linux (Ubuntu/CentOS)</li>
+  <li><strong>编程语言</strong>: Python 3.8+</li>
+  <li><strong>AI框架</strong>: 支持多种LLM模型</li>
+  <li><strong>交互技术</strong>: 触摸屏、语音识别</li>
+  <li><strong>部署方式</strong>: 本地化 + 云端混合</li>
+</ul>
+
+<hr />
+
+<h2 id="2-系统要求">2. 系统要求</h2>
+
+<h3 id="21-硬件要求">2.1 硬件要求</h3>
+<ul>
+  <li><strong>CPU</strong>: 4核心以上 (推荐8核心)</li>
+  <li><strong>内存</strong>: 8GB+ (推荐16GB)</li>
+  <li><strong>存储</strong>: 20GB+ 可用空间</li>
+  <li><strong>网络</strong>: 稳定的互联网连接</li>
+</ul>
+
+<h3 id="22-软件要求">2.2 软件要求</h3>
+<ul>
+  <li><strong>操作系统</strong>: Ubuntu 20.04+ / CentOS 8+ / macOS 10.15+</li>
+  <li><strong>Python</strong>: 3.8+ 版本</li>
+  <li><strong>Git</strong>: 最新版本</li>
+  <li><strong>Docker</strong>: 可选，用于容器化部署</li>
+</ul>
+
+<hr />
+
+<h2 id="3-环境搭建步骤">3. 环境搭建步骤</h2>
+
+<h3 id="31-克隆项目">3.1 克隆项目</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 克隆主项目</span>
+git clone https://github.com/manwjh/mTNT-aios.git
+<span class="nb">cd </span>mTNT-aios
+
+<span class="c"># 克隆博客项目（可选）</span>
+git clone https://github.com/manwjh/mTNT-blog.git
+<span class="nb">cd </span>mTNT-blog
+</code></pre></div></div>
+
+<h3 id="32-创建python虚拟环境">3.2 创建Python虚拟环境</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 创建虚拟环境</span>
+python <span class="nt">-m</span> venv venv
+
+<span class="c"># 激活虚拟环境</span>
+<span class="c"># Linux/macOS:</span>
+<span class="nb">source </span>venv/bin/activate
+
+<span class="c"># Windows:</span>
+venv<span class="se">\S</span>cripts<span class="se">\a</span>ctivate
+</code></pre></div></div>
+
+<h3 id="33-安装依赖">3.3 安装依赖</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 升级pip</span>
+pip <span class="nb">install</span> <span class="nt">--upgrade</span> pip
+
+<span class="c"># 安装项目依赖</span>
+pip <span class="nb">install</span> <span class="nt">-r</span> requirements.txt
+
+<span class="c"># 安装开发工具</span>
+pip <span class="nb">install </span>pytest black flake8 mypy
+</code></pre></div></div>
+
+<h3 id="34-配置环境变量">3.4 配置环境变量</h3>
+
+<p>创建 <code class="language-plaintext highlighter-rouge">.env</code> 文件：</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 复制环境变量模板</span>
+<span class="nb">cp</span> .env.example .env
+
+<span class="c"># 编辑环境变量</span>
+nano .env
+</code></pre></div></div>
+
+<p>配置内容示例：</p>
+
+<pre><code class="language-env"># 项目配置
+PROJECT_NAME=mTNT-OS
+DEBUG=True
+LOG_LEVEL=INFO
+
+# AI模型配置
+LLM_MODEL_PATH=/path/to/your/model
+LLM_API_KEY=your_api_key_here
+
+# 数据库配置
+DATABASE_URL=sqlite:///mtnt.db
+
+# 网络配置
+HOST=0.0.0.0
+PORT=8000
+</code></pre>
+
+<hr />
+
+<h2 id="4-首次运行">4. 首次运行</h2>
+
+<h3 id="41-启动开发服务器">4.1 启动开发服务器</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 启动主服务</span>
+python main.py
+
+<span class="c"># 或者使用开发模式</span>
+python <span class="nt">-m</span> flask run <span class="nt">--debug</span>
+</code></pre></div></div>
+
+<h3 id="42-验证安装">4.2 验证安装</h3>
+
+<p>访问以下地址验证服务是否正常：</p>
+
+<ul>
+  <li><strong>主界面</strong>: http://localhost:8000</li>
+  <li><strong>API文档</strong>: http://localhost:8000/docs</li>
+  <li><strong>健康检查</strong>: http://localhost:8000/health</li>
+</ul>
+
+<h3 id="43-运行测试">4.3 运行测试</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 运行所有测试</span>
+pytest
+
+<span class="c"># 运行特定测试</span>
+pytest tests/test_core.py
+
+<span class="c"># 生成测试覆盖率报告</span>
+pytest <span class="nt">--cov</span><span class="o">=</span>mtnt_core
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="5-开发工作流">5. 开发工作流</h2>
+
+<h3 id="51-代码规范">5.1 代码规范</h3>
+
+<p>项目使用以下工具确保代码质量：</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 代码格式化</span>
+black mtnt_core/
+
+<span class="c"># 代码检查</span>
+flake8 mtnt_core/
+
+<span class="c"># 类型检查</span>
+mypy mtnt_core/
+</code></pre></div></div>
+
+<h3 id="52-git工作流">5.2 Git工作流</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 创建功能分支</span>
+git checkout <span class="nt">-b</span> feature/new-feature
+
+<span class="c"># 提交更改</span>
+git add <span class="nb">.</span>
+git commit <span class="nt">-m</span> <span class="s2">"feat: 添加新功能"</span>
+
+<span class="c"># 推送到远程</span>
+git push origin feature/new-feature
+
+<span class="c"># 创建Pull Request</span>
+<span class="c"># 在GitHub上创建PR</span>
+</code></pre></div></div>
+
+<h3 id="53-调试技巧">5.3 调试技巧</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 启用调试模式</span>
+<span class="nb">export </span><span class="nv">DEBUG</span><span class="o">=</span>True
+
+<span class="c"># 查看详细日志</span>
+<span class="nb">export </span><span class="nv">LOG_LEVEL</span><span class="o">=</span>DEBUG
+
+<span class="c"># 使用Python调试器</span>
+python <span class="nt">-m</span> pdb main.py
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="6-常见问题解决">6. 常见问题解决</h2>
+
+<h3 id="61-依赖安装失败">6.1 依赖安装失败</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 清理缓存</span>
+pip cache purge
+
+<span class="c"># 使用国内镜像</span>
+pip <span class="nb">install</span> <span class="nt">-r</span> requirements.txt <span class="nt">-i</span> https://pypi.tuna.tsinghua.edu.cn/simple/
+</code></pre></div></div>
+
+<h3 id="62-权限问题">6.2 权限问题</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 修复权限</span>
+<span class="nb">sudo chown</span> <span class="nt">-R</span> <span class="nv">$USER</span>:<span class="nv">$USER</span> /path/to/project
+
+<span class="c"># 或者使用用户安装</span>
+pip <span class="nb">install</span> <span class="nt">--user</span> <span class="nt">-r</span> requirements.txt
+</code></pre></div></div>
+
+<h3 id="63-端口占用">6.3 端口占用</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 查看端口占用</span>
+lsof <span class="nt">-i</span> :8000
+
+<span class="c"># 杀死占用进程</span>
+<span class="nb">kill</span> <span class="nt">-9</span> &lt;PID&gt;
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="7-下一步">7. 下一步</h2>
+
+<h3 id="71-学习资源">7.1 学习资源</h3>
+<ul>
+  <li>📖 <a href="https://github.com/manwjh/mTNT-aios/wiki">项目文档</a></li>
+  <li>🎥 <a href="https://www.youtube.com/playlist?list=...">视频教程</a></li>
+  <li>💬 <a href="https://github.com/manwjh/mTNT-aios/discussions">社区讨论</a></li>
+</ul>
+
+<h3 id="72-贡献指南">7.2 贡献指南</h3>
+<ul>
+  <li>🐛 <a href="https://github.com/manwjh/mTNT-aios/issues">报告Bug</a></li>
+  <li>✨ <a href="https://github.com/manwjh/mTNT-aios/discussions">功能建议</a></li>
+  <li>📝 <a href="https://github.com/manwjh/mTNT-aios/wiki">文档改进</a></li>
+</ul>
+
+<h3 id="73-联系方式">7.3 联系方式</h3>
+<ul>
+  <li><strong>GitHub</strong>: <a href="https://github.com/manwjh/mTNT-aios">manwjh/mTNT-aios</a></li>
+  <li><strong>Twitter</strong>: <a href="https://x.com/cpswang">@cpswang</a></li>
+  <li><strong>Email</strong>: contact@mtnt-os.com</li>
+</ul>
+
+<hr />
+
+<h2 id="8-总结">8. 总结</h2>
+
+<p>通过本指南，你已经成功搭建了mTNT OS的开发环境。接下来你可以：</p>
+
+<ol>
+  <li><strong>探索代码结构</strong>: 了解项目的整体架构</li>
+  <li><strong>运行示例</strong>: 尝试运行项目提供的示例</li>
+  <li><strong>参与开发</strong>: 选择感兴趣的功能进行开发</li>
+  <li><strong>加入社区</strong>: 与其他开发者交流经验</li>
+</ol>
+
+<p><strong>记住</strong>: 开发是一个持续学习的过程，遇到问题时不要犹豫，随时在社区中寻求帮助！</p>
+
+<hr />
+
+<p><em>本文档会持续更新，请关注项目的最新动态。</em></p>
+
+<p><strong>相关链接</strong>:</p>
+<ul>
+  <li><a href="https://github.com/manwjh/mTNT-aios">mTNT OS 项目主页</a></li>
+  <li><a href="../guides.html">开发指南索引</a></li>
+  <li><a href="../issues.html">常见问题解答</a></li>
+</ul>
+
+    </div>
+</article>
+        </main>
+        
+        <footer>
+    <div class="container">
+        <div class="footer-content">
+            <p>&copy; 2025 mTNT Blog. All rights reserved.</p>
+            
+            <!-- 访问量统计 -->
+            <div class="visit-counter">
+                <span id="busuanzi_container_site_pv">
+                    总访问量: <span id="busuanzi_value_site_pv"></span>
+                </span>
+                <span id="busuanzi_container_site_uv">
+                    访客数: <span id="busuanzi_value_site_uv"></span>
+                </span>
+            </div>
+            
+            <p>Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://pages.github.com/">GitHub Pages</a></p>
+        </div>
+    </div>
+</footer>
+
+<!-- 不蒜子访问量统计脚本 -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    </div>
+    
+    <!-- JavaScript -->
+    <script src="/mTNT-blog/assets/js/main.js"></script>
+</body>
+</html>

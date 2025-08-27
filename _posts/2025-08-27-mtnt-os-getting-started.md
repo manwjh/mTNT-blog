@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "mTNT OS 入门指南 - 从零开始搭建开发环境"
-date: 2025-08-27 10:00:00 +0800
+title: "mTNT OS 入门指南 - 测试文章"
+date: 2025-08-27 09:27:00 +0800
 categories: [Guide, Tutorial]
 tags: [mTNT, AI, OS, Guide, Setup, Environment, LLM]
 author: 深圳王哥
