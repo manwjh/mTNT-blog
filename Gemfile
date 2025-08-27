@@ -22,3 +22,6 @@ end
 # 性能优化
 gem "wdm", ">= 0.1.0", :platforms => [:mingw, :x64_mingw, :mswin]
 gem "webrick", "~> 1.7"
+
+# 兼容性修复
+gem "ffi", "~> 1.15.0"
