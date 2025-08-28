@@ -167,7 +167,7 @@ footer { background: #333; color: #fff; text-align: center; padding: 30px 0; mar
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { /* 确保在高分辨率屏幕上文字清晰 */
   body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; } }
 /* 移动端菜单按钮 */
-.mobile-menu-btn { display: none; background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer; padding: 10px; border-radius: 5px; transition: background 0.3s ease; position: absolute; top: 10px; right: 10px; z-index: 1001; }
+.mobile-menu-btn { display: none; background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer; padding: 10px; border-radius: 5px; transition: background 0.3s ease; position: absolute; top: 10px; right: 10px; z-index: 1001; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; }
 
 .mobile-menu-btn:hover { background: rgba(255, 255, 255, 0.2); }
 
@@ -182,10 +182,10 @@ footer { background: #333; color: #fff; text-align: center; padding: 30px 0; mar
 @media (max-width: 768px) { /* 头部容器相对定位 */
   .header-content { position: relative; }
   .mobile-menu-btn { display: block; }
-  nav { position: relative; }
-  nav ul { display: none; position: absolute; top: 100%; left: 0; right: 0; background: rgba(102, 126, 234, 0.95); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); z-index: 1000; padding: 10px; border-radius: 0 0 10px 10px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); margin-top: 5px; }
+  nav { position: relative; width: 100%; }
+  nav ul { display: none; position: absolute; top: 100%; left: 0; right: 0; width: 100%; background: rgba(102, 126, 234, 0.95); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); z-index: 1000; padding: 10px; border-radius: 0 0 10px 10px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); margin-top: 5px; max-height: 80vh; overflow-y: auto; list-style: none; margin-left: 0; margin-right: 0; }
   nav ul.nav-open { display: flex; flex-direction: column; }
-  nav ul li { width: 100%; margin: 0; }
+  nav ul li { width: 100%; margin: 0; list-style: none; }
   nav ul li a { width: 100%; text-align: center; padding: 12px; border-radius: 5px; margin: 2px 0; display: block; color: #fff; text-decoration: none; transition: background 0.3s ease; }
   nav ul li a:hover, nav ul li a:active { background: rgba(255, 255, 255, 0.2); }
   /* 代码块容器 */
@@ -199,6 +199,21 @@ body.loaded { opacity: 1; }
 /* 移动端设备特殊样式 */
 .mobile-device { /* 移动端特定样式 */ }
 
+/* 确保移动端菜单不会出现显示问题 */
+@media (max-width: 768px) { /* 重置可能的冲突样式 */
+  nav ul::before, nav ul::after { display: none !important; }
+  /* 确保菜单容器不会溢出 */
+  .header-content { overflow: visible; }
+  /* 防止菜单按钮被遮挡 */
+  .mobile-menu-btn { pointer-events: auto; }
+  /* 确保菜单项正确显示 */
+  nav ul li a { position: relative; z-index: 1; }
+  /* 修复可能的边框问题 */
+  .bilingual { border-left: 4px solid #667eea; position: relative; overflow: visible; }
+  /* 确保没有意外的绝对定位元素 */
+  * { box-sizing: border-box; }
+  /* 防止菜单背景色溢出 */
+  nav ul { background-clip: padding-box; } }
 /* 打印样式 */
 @media print { header, footer, nav { display: none; }
   .main-content { box-shadow: none; margin: 0; padding: 0; }
@@ -213,7 +228,7 @@ body.loaded { opacity: 1; }
 .feature-icon { font-size: 3rem; margin-bottom: 15px; }
 
 /* 双语内容样式 */
-.bilingual { border-left: 4px solid #667eea; padding-left: 20px; margin: 20px 0; }
+.bilingual { border-left: 4px solid #667eea; padding-left: 20px; margin: 20px 0; position: relative; overflow: hidden; }
 
 .bilingual .chinese { color: #333; }
 

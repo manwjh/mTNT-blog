@@ -3,19 +3,30 @@
   <channel>
     <title>mTNT Blog</title>
     <description>基于 mTNT 的技术分享、开发指南和项目记录</description>
-    <link>https://manwjh.github.io</link>
-    <atom:link href="https://manwjh.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    <link>http://0.0.0.0:4000</link>
+    <atom:link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/rss+xml" />
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 27 Aug 2025 14:33:55 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 28 Aug 2025 11:08:27 +0800</lastBuildDate>
     
+    
+    <item>
+      <title>mTNT OS 技术架构详解 - 从设计到实现</title>
+      <description>mTNT OS 技术架构详解 - 从设计到实现
+
+</description>
+      <link>http://0.0.0.0:4000/2025/08/27/mtnt-os-architecture-guide/</link>
+      <guid>http://0.0.0.0:4000/2025/08/27/mtnt-os-architecture-guide/</guid>
+      <pubDate>Wed, 27 Aug 2025 16:00:00 +0800</pubDate>
+      <author>深圳王哥</author>
+    </item>
     
     <item>
       <title>mTNT OS 常见问题解答与故障排除指南</title>
       <description>mTNT OS 常见问题解答与故障排除指南
 
 </description>
-      <link>https://manwjh.github.io/2025/08/27/mtnt-os-faq-troubleshooting/</link>
-      <guid>https://manwjh.github.io/2025/08/27/mtnt-os-faq-troubleshooting/</guid>
+      <link>http://0.0.0.0:4000/2025/08/27/mtnt-os-faq-troubleshooting/</link>
+      <guid>http://0.0.0.0:4000/2025/08/27/mtnt-os-faq-troubleshooting/</guid>
       <pubDate>Wed, 27 Aug 2025 14:00:00 +0800</pubDate>
       <author>深圳王哥</author>
     </item>
@@ -25,8 +36,8 @@
       <description>mTNT OS 入门指南 - 从零开始搭建开发环境
 
 </description>
-      <link>https://manwjh.github.io/2025/08/27/mtnt-os-getting-started/</link>
-      <guid>https://manwjh.github.io/2025/08/27/mtnt-os-getting-started/</guid>
+      <link>http://0.0.0.0:4000/2025/08/27/mtnt-os-getting-started/</link>
+      <guid>http://0.0.0.0:4000/2025/08/27/mtnt-os-getting-started/</guid>
       <pubDate>Wed, 27 Aug 2025 09:27:00 +0800</pubDate>
       <author>深圳王哥</author>
     </item>
@@ -36,8 +47,8 @@
       <description>mTNT OS 架构设计详解
 
 </description>
-      <link>https://manwjh.github.io/2025/08/26/mtnt-os-architecture/</link>
-      <guid>https://manwjh.github.io/2025/08/26/mtnt-os-architecture/</guid>
+      <link>http://0.0.0.0:4000/2025/08/26/mtnt-os-architecture/</link>
+      <guid>http://0.0.0.0:4000/2025/08/26/mtnt-os-architecture/</guid>
       <pubDate>Tue, 26 Aug 2025 21:07:00 +0800</pubDate>
       <author>深圳王哥</author>
     </item>
@@ -47,8 +58,8 @@
       <description>mTNT OS Core 系统历史分析记录
 
 </description>
-      <link>https://manwjh.github.io/2025/08/26/mtnt-os-core-analysis/</link>
-      <guid>https://manwjh.github.io/2025/08/26/mtnt-os-core-analysis/</guid>
+      <link>http://0.0.0.0:4000/2025/08/26/mtnt-os-core-analysis/</link>
+      <guid>http://0.0.0.0:4000/2025/08/26/mtnt-os-core-analysis/</guid>
       <pubDate>Tue, 26 Aug 2025 16:00:00 +0800</pubDate>
       <author>AI Assistant</author>
     </item>
@@ -58,8 +69,8 @@
       <description>前言 / Preface
 
 </description>
-      <link>https://manwjh.github.io/2025/08/26/welcome-post/</link>
-      <guid>https://manwjh.github.io/2025/08/26/welcome-post/</guid>
+      <link>http://0.0.0.0:4000/2025/08/26/welcome-post/</link>
+      <guid>http://0.0.0.0:4000/2025/08/26/welcome-post/</guid>
       <pubDate>Tue, 26 Aug 2025 10:00:00 +0800</pubDate>
       <author>深圳王哥 & AI</author>
     </item>

@@ -563,6 +563,11 @@ footer {
   top: 10px;
   right: 10px;
   z-index: 1001;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .mobile-menu-btn:hover {
@@ -605,6 +610,7 @@ footer {
   
   nav {
     position: relative;
+    width: 100%;
   }
   
   nav ul {
@@ -613,6 +619,7 @@ footer {
     top: 100%;
     left: 0;
     right: 0;
+    width: 100%;
     background: rgba(102, 126, 234, 0.95);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -621,6 +628,11 @@ footer {
     border-radius: 0 0 10px 10px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     margin-top: 5px;
+    max-height: 80vh;
+    overflow-y: auto;
+    list-style: none;
+    margin-left: 0;
+    margin-right: 0;
   }
   
   nav ul.nav-open {
@@ -631,6 +643,7 @@ footer {
   nav ul li {
     width: 100%;
     margin: 0;
+    list-style: none;
   }
   
   nav ul li a {
@@ -674,6 +687,48 @@ body.loaded {
 /* 移动端设备特殊样式 */
 .mobile-device {
   /* 移动端特定样式 */
+}
+
+/* 确保移动端菜单不会出现显示问题 */
+@media (max-width: 768px) {
+  /* 重置可能的冲突样式 */
+  nav ul::before,
+  nav ul::after {
+    display: none !important;
+  }
+  
+  /* 确保菜单容器不会溢出 */
+  .header-content {
+    overflow: visible;
+  }
+  
+  /* 防止菜单按钮被遮挡 */
+  .mobile-menu-btn {
+    pointer-events: auto;
+  }
+  
+  /* 确保菜单项正确显示 */
+  nav ul li a {
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* 修复可能的边框问题 */
+  .bilingual {
+    border-left: 4px solid #667eea;
+    position: relative;
+    overflow: visible;
+  }
+  
+  /* 确保没有意外的绝对定位元素 */
+  * {
+    box-sizing: border-box;
+  }
+  
+  /* 防止菜单背景色溢出 */
+  nav ul {
+    background-clip: padding-box;
+  }
 }
 
 /* 打印样式 */
@@ -726,6 +781,8 @@ body.loaded {
   border-left: 4px solid #667eea;
   padding-left: 20px;
   margin: 20px 0;
+  position: relative;
+  overflow: hidden;
 }
 
 .bilingual .chinese {
